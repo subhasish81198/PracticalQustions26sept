@@ -1,3 +1,11 @@
+//2.Write a Java switch case program to take the students names and attendance % of 10 students as input and display their grades according to the below conditions:
+ //* If attendance above 90 then “A” 
+// * If attendance between 90-80 then “B” 
+// * If attendance between 80-70 then “C” 
+// * If attendance between 70-60 then “D” 
+ //* If attendance between 45-60 then “E”
+
+
 package Javanew;
 import java.util.Scanner;
 public class StudentGrades {
