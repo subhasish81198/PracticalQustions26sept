@@ -7,60 +7,52 @@
 
 
 package Javanew;
-import java.util.Scanner;
-public class StudentGrades {
-public static void main(String[] args) {
-	Scanner sc = new Scanner(System.in);
 
-    for (int i = 1; i <= 10; i++) {
-        System.out.println("Enter the name of student " + i + ":");
-        String name = sc.nextLine();
-        System.out.println("Enter the attendance % of " + name + ":");
-        double attendance = sc.nextDouble();
-        sc.nextLine();
-        char grade = getGrade(attendance);
-        System.out.println(name + "'s grade is: " + grade);
+import java.util.Scanner;
+
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] names = new String[10];
+        int[] attendance = new int[10];
+        char[] grades = new char[10];
+
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Enter name of student " + (i + 1) + ": ");
+            names[i] = scanner.nextLine();
+            System.out.print("Enter attendance percentage of student " + (i + 1) + ": ");
+            attendance[i] = Integer.parseInt(scanner.nextLine());
+
+            switch (attendance[i] / 10) {
+                case 10:
+                case 9:
+                    grades[i] = 'A';
+                    break;
+                case 8:
+                    grades[i] = 'B';
+                    break;
+                case 7:
+                    grades[i] = 'C';
+                    break;
+                case 6:
+                    grades[i] = 'D';
+                    break;
+                default:
+                    if (attendance[i] >= 45 && attendance[i] <= 60) {
+                        grades[i] = 'E';
+                    } else {
+                        grades[i] = 'F';
+                    }
+            }
+        }
+
+        System.out.println("\nName\tAttendance\tGrade");
+        for (int i = 0; i < 10; i++) {
+            System.out.println(names[i] + "\t" + attendance[i] + "%\t\t" + grades[i]);
+        }
     }
 }
-
-public static char getGrade(double attendance) {
-    int category;
-
-    if (attendance > 90) {
-        category = 1;
-    } else if (attendance > 80) {
-        category = 2;
-    } else if (attendance > 70) {
-        category = 3;
-    } else if (attendance > 60) {
-        category = 4;
-    } else if (attendance >= 45) {
-        category = 5;
-    } else {
-        category = 6;
-    }
-
-    char grade;
-
-    switch (category) {
-        case 1:
-            grade = 'A';
-            break;
-        case 2:
-            grade = 'B';
-            break;
-        case 3:
-            grade = 'C';
-            break;
-        case 4:
-            grade = 'D';
-            break;
-        case 5:
-            grade = 'E';
-            break;
-        default:
-            grade = 'F';
-            break;
+;
     }
 
     return grade;
